@@ -1,0 +1,233 @@
+
+body {
+  margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #e7f6ff;
+}
+
+*{
+  font-family: Inter, system-ui;
+}
+
+.wrapper{
+  background: #FFFFFF;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+}
+
+header{
+  border-bottom: 1px solid #eaeaea;
+    img{
+      margin-right: 15px;
+    }
+    h3,
+    p {
+      margin: 0;
+    }
+  }
+  .content{
+    h1{
+    margin: 0;
+  }
+}
+
+  .swiper{
+    width: 960px;
+    height: 300px;
+    background: #F4EFE9;
+    border-radius: 20px;
+    column-gap: 17px;
+    .swiperLeft{
+      margin: 16px 0 0 17px;
+      h2{
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 46px;
+        margin: 32px 0 0 61px;
+        color: #8BB43C;
+      }
+      span{
+        font-size: 35px;
+        color: black;
+      }
+      button{
+        width: 177.46px;
+        height: 47.09px;
+        margin: 10px 0 0 61px;
+        background: #A5D364;
+        border-radius: 110px;
+        border: none;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .search-block{
+    border: 1px solid #f3f3f3;
+    border-radius: 10px;
+    padding: 0 15px;
+    position: relative;
+
+    .clear{
+      position: absolute;
+      right: 0;
+      width: 18px;
+      height: 18px;
+      top: 13px;
+      right: 15px;
+    }
+
+    input{
+      border: 0;
+      padding: 13px;
+      font-size: 16px;
+      width: 200px;
+    }
+  }
+
+
+
+  .cartTotalBlock{
+  li{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    div{
+      flex: 1;
+      height: 1px;
+      border-bottom: 1px dashed #dfdfdf;
+      position: relative;
+      top: -4px;
+      margin: 0 7px;
+    }
+  }
+  .greenButton{
+    position: relative;
+
+    &:disabled{
+      animation: button-loading 0.6s ease-in-out infinite;
+    }
+
+    &:hover{
+      img{
+        transform: translateX(5px);
+      }
+    }
+    img{
+      transition: transform 0.15s ease-in-out;
+      position: absolute;
+      right: 30px;
+      top: 20px;
+    }
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    height: 55px;
+    background: #9DD558;
+    border-radius: 18px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-top: 40px !important;
+    transition: background 0.2s ease-in-out;
+    &:disabled{
+      background-color: #bebebe !important;
+      cursor: default;
+    }
+    &:hover{
+      background: lighten(#9dd558, 5%);
+    }
+    &:active{
+      background: darken(#9dd558, 5%);
+    }
+  }
+}
+
+
+
+  .cartEmpty{
+    text-align: center;
+    p{
+      width: 280px;
+      line-height: 24px;
+    }
+    .greenButton{
+      width: 245px;
+      height: 55px;
+      margin-top: 20px;
+      background: #9DD458;
+      border-radius: 18px;
+      border: none;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: #FFFFFF;
+      &:hover{
+        img{
+          transform: rotate(180deg) translateX(3px);
+        }
+      }
+      img{
+        position: relative;
+        top: 1px;
+        transform: rotate(180deg);
+        margin-right: 15px;
+        transition: transform 0.15s ease-in-out;
+      }
+    }
+  }
+
+  .cartItem{
+    border: 1px solid #f3f3f3;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 20px;
+
+    .cartItemImg{
+      height: 70px;
+      width: 70px;
+      background-size: contain;
+      background-position: 0 -3px;
+      background-repeat: no-repeat;
+      margin-right: 20px;
+    }
+    p{
+      font-size: 16px;
+      margin: 0;
+    }
+    b{
+      font-size: 14px;
+    }
+  }
+
+
+
+  
+  @keyframes button-loading {
+    0%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 0.7;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+  
+  @media (max-width: 595px) {
+    .mediaHeader{
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
