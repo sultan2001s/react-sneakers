@@ -4,6 +4,11 @@ import Info from '../info';
 import {useCart} from '../../hooks/useCart'
 import styles from './Drawer.module.scss'
 
+import btnRemove from '../img/btn-remove.svg'
+import arrowSvg from '../img/arrow.svg'
+import orderingImg from '../img/ordering.jpg'
+import emptyImg from '../img/empty-cart.jpg'
+
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function Drawer({ onClose, onRemove, items = [], opened }) {
@@ -38,7 +43,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
         <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
             <div className={styles.drawer}>
                 <h2 className="mb-30 d-flex justify-between">Корзина
-                    <img onClick={onClose} className="removeBtn cu-p" src="/img/btn-remove.svg" alt="Remove"/>
+                    <img onClick={onClose} className="removeBtn cu-p" src={btnRemove} alt="Remove"/>
                 </h2>
 
                 {
@@ -55,7 +60,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                                             <p className="mb-5">{obj.title}</p>
                                             <b>{obj.price} руб.</b>
                                         </div>
-                                        <img className={styles.removeBtn} onClick={() => onRemove(obj.id)} src="/img/btn-remove.svg" alt="Remove"/>
+                                        <img className={styles.removeBtn} onClick={() => onRemove(obj.id)} src={btnRemove} alt="Remove"/>
                                     </div>
                                 ))}
                                 <ul className="cartTotalBlock">
@@ -69,13 +74,13 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                                         <div></div>
                                         <b>{totalPrice / 100 * 5} руб.</b>
                                     </li>
-                                    <button disabled={isLoading} className="greenButton" onClick={onClickOrder}>Оформить заказ <img src="/img/arrow.svg" alt="Arrow"/></button>
+                                    <button disabled={isLoading} className="greenButton" onClick={onClickOrder}>Оформить заказ <img src={arrowSvg} alt="Arrow"/></button>
                                 </ul>
                         </div>
                     </div> :
                         <Info title={isOrder ? "Заказ оформлен!" : "Корзина пустая"}
                               description={isOrder ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке` : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."}
-                              image={isOrder ? "/img/ordering.jpg" : "/img/empty-cart.jpg"} />
+                              image={isOrder ? `${orderingImg}` : `${emptyImg}`} />
                 }
             </div>
         </div>

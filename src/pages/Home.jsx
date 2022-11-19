@@ -1,6 +1,11 @@
 import React from "react";
 import Card from "../components/Card/Card";
 
+import sneakersImg from '../components/img/sneakers-img.png'
+import iconImg from '../components/img/icon-img.png'
+import searchSvg from '../components/img/search.svg'
+import removeSvg from '../components/img/btn-remove.svg'
+
 
 function Home({ items, searchValue, cartItems, onChangeSearchInput, onAddToFavorite, onAddToCart, setSearchValue, isLoading }) {
 
@@ -26,24 +31,24 @@ function Home({ items, searchValue, cartItems, onChangeSearchInput, onAddToFavor
         <div className="content p-40">
             <div className="swiper mb-40 d-flex">
                 <div className="swiperLeft">
-                    <img src="/img/icon-img.png" alt="icon-img"/>
+                    <img src={iconImg} alt="icon-img"/>
                     <h2>Stan Smith, <span>Forever!</span></h2>
                     <button className="cu-p">Купить</button>
                 </div>
                 <div>
-                    <img src="/img/sneakers-img.png" alt="sneakers-img"/>
+                    <img src={sneakersImg} alt="sneakers-img"/>
                 </div>
             </div>
 
             <div className="d-flex align-center mb-40 justify-between">
                 <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
                 <div className="search-block d-flex">
-                    <img src="/img/search.svg" alt="Search"/>
+                    <img src={searchSvg} alt="Search"/>
                     {searchValue && (
                         <img
                             onClick={() => setSearchValue('')}
                             className="clear cu-p"
-                            src="/img/btn-remove.svg"
+                            src={removeSvg}
                             alt="Clear"
                         />
                     )}

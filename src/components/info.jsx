@@ -1,6 +1,8 @@
 import React from 'react';
 import AppContext from "../context";
 
+import arrBtn from './img/arr-btn.svg'
+
 const Info = ({title, image, description}) => {
     const {setCartOpened} = React.useContext(AppContext);
     const [isOrder, setIsOrder] = React.useState(false);
@@ -19,7 +21,7 @@ const Info = ({title, image, description}) => {
             <h2>{title}</h2>
             <p className="opacity-6">{description}</p>
             <button onClick={() => setCartOpened(false)} className="greenButton cu-p">
-                <img src="/img/arr-btn.svg" alt="ArrBtn"/>
+                <img src={arrBtn} alt="ArrBtn"/>
                 Вернуться назад
             </button>
         </div>

@@ -3,6 +3,11 @@ import ContentLoader from "react-content-loader"
 import styles from './Card.module.scss';
 import AppContext from "../../context";
 
+import plusImg from '../img/btn-plus.svg'
+import onChecked from '../img/btn-checked.svg'
+import heartImg from '../img/heart-liked.svg'
+import unlikedImg from '../img/heart-unliked.svg'
+
 function Card({ id, onFavorite, imageUrl, title, price, onPlus, favorited = false, added = false, loading = false}) {
     const {isItemAdded} = React.useContext(AppContext);
     // const [isAdded, setIsAdded] = React.useState(added);
@@ -38,7 +43,7 @@ function Card({ id, onFavorite, imageUrl, title, price, onPlus, favorited = fals
                 </ContentLoader> :
                     <>
                         {onFavorite && <div className={styles.favorite} onClick={onClickFavorite}>
-                            <img className={isFavorite ? '/img/heart-liked.svg' : '/img/heart-unliked.svg'} src={isFavorite ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Unliked"/>
+                            <img className={isFavorite ? `${heartImg}` : `${unlikedImg}`} src={isFavorite ? `${heartImg}` : `${unlikedImg}`} alt="Unliked"/>
                         </div>}
                         <img width="100%" height={135} src={imageUrl} alt="Sneakers"/>
                         <h5>{title}</h5>
@@ -47,7 +52,7 @@ function Card({ id, onFavorite, imageUrl, title, price, onPlus, favorited = fals
                                 <span>Цена:</span>
                                 <b>{price} руб.</b>
                             </div>
-                            {onPlus && <img className={styles.plus} onClick={onClickPlus} src={isItemAdded(id) ? "/img/btn-checked.svg" : "/img/btn-plus.svg"} alt="Plus"/>}
+                            {onPlus && <img className={styles.plus} onClick={onClickPlus} src={isItemAdded(id) ? `${onChecked}` : `${plusImg}` } alt="Plus"/>}
                         </div>
                     </>
             }
